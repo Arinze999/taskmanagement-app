@@ -10,7 +10,7 @@ const Topbar = () => {
   return (
     <div className="border-b-2 border-b-gray-400 sticky z-5 top-0 py-3 flex-between bg-white">
       <div>
-        {auth?.email ?? 'no user logged in'} <SignOutButton />
+        <p className='pb-3'>{auth?.email ?? 'no user logged in'}</p> <SignOutButton />
       </div>
     </div>
   );

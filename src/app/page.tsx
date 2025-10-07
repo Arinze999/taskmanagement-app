@@ -1,13 +1,16 @@
 import TaskCenter from '@/components/dashboard/TaskCenter';
 import Topbar from '@/components/dashboard/Topbar';
+import { EditTaskProvider } from '@/context/EditTaskContext';
 import React from 'react';
 
 const Dashboard = () => {
-
   return (
     <div className="default-margin">
-      <Topbar/>
-      <TaskCenter/>
+      <Topbar />
+      <EditTaskProvider>
+        {' '}
+        <TaskCenter />
+      </EditTaskProvider>
     </div>
   );
 };

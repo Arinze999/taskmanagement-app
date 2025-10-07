@@ -1,5 +1,8 @@
 import React from 'react';
 import { Task } from '@/redux/slices/tasksSlice';
+import Button from '@/components/buttons/Button';
+import { useDeleteTask } from '@/hooks/tasks/useDeleteTask';
+import { useEditTaskContext } from '@/context/EditTaskContext';
 
 interface TaskCardProps extends Task {
   className?: string;
@@ -15,6 +18,10 @@ const TaskCard: React.FC<TaskCardProps> = ({
   onToggle,
   id,
 }) => {
+  const { loading: deleting, deleteTask } = useDeleteTask();
+
+  const { beginEdit } = useEditTaskContext();
+
   return (
     <div className={`${className}`}>
       <button
@@ -48,13 +55,28 @@ const TaskCard: React.FC<TaskCardProps> = ({
       >
         <div id={id} className="overflow-hidden pr-1">
           <p
-            className={`mt-3 text-xs leading-6 text-gray-700 transition-all duration-300 ${
+            className={`mt-3 text-xs leading-6 text-gray-700 transition-all duration-300 text-wrap ${
               open ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-1'
             }`}
           >
             {description}
           </p>
         </div>
+      </div>
+      <div className="w-full flex-between mt-3">
+        <Button
+          text={deleting ? 'deleting...' : 'delete'}
+          className="text-red-400 disabled:opacity-20 disabled:cursor-not-allowed disabled:text-gray-300"
+          icon
+          onClick={() => deleteTask(id)}
+          disabled={deleting}
+        />
+        <Button
+          text="edit"
+          className="text-black-400"
+          icon
+          onClick={() => beginEdit(id)}
+        />
       </div>
     </div>
   );

@@ -17,7 +17,7 @@ const Button = ({
 }) => {
   return (
     <button
-      className={`${className} cursor-pointer flex gap-3 justify-center items-center text-sm md:text-md text-nowrap disabled:cursor-not-allowed disabled:bg-gray-400 disabled:opacity-75`}
+      className={`${className} cursor-pointer flex gap-3 justify-center items-center text-sm md:text-md text-nowrap disabled:cursor-not-allowed disabled:opacity-75`}
       disabled={disabled}
       onClick={onClick}
     >

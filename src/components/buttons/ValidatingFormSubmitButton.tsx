@@ -1,9 +1,8 @@
 'use client';
 
 import { useFormikContext } from 'formik';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { LoadingTwotoneLoop } from '../icons/LoadingLoop';
-
 
 interface IValidatingFormSubmitButton {
   loading?: boolean;
@@ -21,13 +20,7 @@ const ValidatingFormSubmitButton: React.FC<IValidatingFormSubmitButton> = ({
   disabled,
 }) => {
   // grab everything from Formik
-  const { dirty, isValid, values, errors } = useFormikContext<any>();
-
-  // log out values & errors whenever they change
-  useEffect(() => {
-    console.log('Formik values:', values);
-    console.log('Formik errors:', errors);
-  }, [values, errors]);
+  const { dirty, isValid } = useFormikContext<any>();
 
   // disable logic
   const isDisabled = alwaysActive ? false : !(isValid && dirty);

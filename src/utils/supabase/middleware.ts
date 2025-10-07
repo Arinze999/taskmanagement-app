@@ -23,7 +23,7 @@ export async function getSessionAndResponse(request: NextRequest) {
             // Force attributes so cookies can be sent cross-site
             const merged = {
               ...options,
-              path: '/',              // good default
+              path: '/',             
               sameSite: 'none' as const, // allow third‑party requests
               secure: true,           // must be true when SameSite=None (and works on Vercel HTTPS)
             };

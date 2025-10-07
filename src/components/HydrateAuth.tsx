@@ -8,8 +8,6 @@ import { AuthUser } from '@/schemas/auth/signin.schema';
 export default function HydrateAuth({ user }: { user: AuthUser }) {
   const dispatch = useDispatch();
 
-  console.log('user:', user)
-
   useEffect(() => {
     dispatch(setUser(user));
   }, [dispatch, user]);
