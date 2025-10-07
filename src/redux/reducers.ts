@@ -1,8 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import authReducer from './slices/authSlice';
+import taskReducer from './slices/tasksSlice';
 
 const appReducer = combineReducers({
   auth: authReducer,
+  tasks: taskReducer,
 });
 
 const rootReducer = (
