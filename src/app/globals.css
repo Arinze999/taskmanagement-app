@@ -1,26 +1,134 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  font-family: var(--font-poppins);
+  scroll-behavior: smooth;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* helper class for Inter font */
+.font-inter {
+  font-family: var(--font-inter), sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer utilities {
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .col-center {
+    @apply flex flex-col justify-center items-center;
+  }
+
+  .col-between {
+    @apply flex flex-col justify-between;
+  }
+
+  .col-start {
+    @apply flex flex-col;
+  }
+
+  .general-title {
+    @apply md:text-5xl text-2xl font-bold text-center;
+  }
+
+  .general-subtitle {
+    @apply md:text-lg text-center max-w-[850px];
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  } /* Chrome/Safari */
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (min-width: 320px) {
+  .default-margin {
+    /* margin: 0 16px 0 16px; */
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
+  .default-padding {
+    /* margin: 0 16px 0 16px; */
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .default-flex {
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 768px) {
+  .default-margin {
+    /* margin: 0 20px 0 20px; */
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .default-padding {
+    /* margin: 0 16px 0 16px; */
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1152px) {
+  .default-margin {
+    /* margin: 0 32px 0 32px; */
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+
+  .default-padding {
+    /* margin: 0 16px 0 16px; */
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none;
+  }
+
+  .web-nav {
+    display: flex;
+  }
+}
+
+@media (min-width: 1440px) {
+  /* .mobile-nav {
+    display: none;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .web-nav {
+    display: flex;
+  } */
+}
+
+@media (min-width: 1920px) {
+  .default-margin {
+    /* margin: 0 220px 0 220px; */
+    margin-left: 220px;
+    margin-right: 220px;
+  }
+
+  .default-padding {
+    /* margin: 0 16px 0 16px; */
+    padding-left: 220px;
+    padding-right: 220px;
+  }
 }
