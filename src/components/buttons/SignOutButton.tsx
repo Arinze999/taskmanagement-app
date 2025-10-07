@@ -1,7 +1,6 @@
 'use client';
 
 import { SIGNOUT } from '@/routes/routes';
-import { Logout } from '../icons/Logout';
 
 export default function SignOutButton() {
   return (
